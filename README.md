@@ -4,7 +4,7 @@ MaintenanceActionFilter is a asp.net MVC/Web Api action filter library for maint
 
 #Getting started with MaintenanceActionFilter 
 
-  * Reference MaintenanceActionFilter.dll and SessionMessage.dll(https://github.com/zsu/SessionMessage)
+  * Reference MaintenanceActionFilter.dll and SessionMessage.dll (https://github.com/zsu/SessionMessage)
   * Create class MaintenanceSettingProvider that implement interface IMaintenanceSettingProvider
   * Register it in filterconfig.cs:
 ```xml
