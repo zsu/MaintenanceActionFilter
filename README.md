@@ -4,7 +4,7 @@ MaintenanceActionFilter is a asp.net MVC/Web Api action filter library for maint
 
 #Getting started with MaintenanceActionFilter 
 
-  * Reference MaintenanceActionFilter.dll and SessionMessage.dll (https://github.com/zsu/SessionMessage)
+  * Reference MaintenanceActionFilter.dll and SessionMessage.dll (https://github.com/zsu/SessionMessage)
   * Create class MaintenanceSettingProvider that implement interface IMaintenanceSettingProvider
 ```xml
   * StartTimeUtc: UTC time to start maintenance; Set to default datetime value will disable maintenance detection.
@@ -29,7 +29,7 @@ MaintenanceActionFilter is a asp.net MVC/Web Api action filter library for maint
 ```js
 		[MvcMaintenanceActionFilter(Disabled = true)]
 ```
-  * Setup SessionMessage: Please refer to https://github.com/zsu/SessionMessage
+  * Setup SessionMessage: Please refer to https://github.com/zsu/SessionMessage
 
 #License
 All source code is licensed under MIT license - http://www.opensource.org/licenses/mit-license.php
