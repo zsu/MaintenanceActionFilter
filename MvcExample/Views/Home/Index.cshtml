@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="container">
+        <section class="row">
+            <h1>Browser Timezone Detector</h1>
+
+            <div class="well row">
+                <div class="row">
+                    <div class="span4">
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="control-label" for="message">@ViewBag.Message</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+                <div class="row">
+                    <input type="submit" class="btn btn-primary btn-large" value="Refresh" />
+                </div>
+            </div>
+
+            <footer class="row">
+                <h2>Links</h2>
+
+                <ul>
+                    <li><a href="https://github.com/zsu/MaintenanceActionFilter">GitHub</a></li>
+                </ul>
+            </footer>
+        </section>
+    </div>
+}
