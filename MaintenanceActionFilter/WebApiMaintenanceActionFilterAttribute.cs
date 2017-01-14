@@ -13,7 +13,7 @@ namespace MaintenanceActionFilter
 {
 	public class WebApiMaintenanceActionFilterAttribute : ActionFilterAttribute
 	{
-		private const string KEYS_MAINTENANCE_WARNING_MESSAGE = "maintenance.warningmessage";
+		private const string KeyMaintenanceWarningMessage = "maintenance.warningmessage";
 		private IMaintenanceSettingProvider _settingProvider;
 		public bool Disabled { get; set; }
 		public WebApiMaintenanceActionFilterAttribute(IMaintenanceSettingProvider settingProvider)
@@ -54,7 +54,7 @@ namespace MaintenanceActionFilter
 						var difference = (startTime - DateTime.UtcNow);
 						if (difference.TotalSeconds < warningLead)
 						{
-							SessionMessageManager.SetMessage(MessageType.Warning, MessageBehaviors.StatusBar, maintenanceWarningMessage, KEYS_MAINTENANCE_WARNING_MESSAGE);
+							SessionMessageManager.SetMessage(MessageType.Warning, MessageBehaviors.StatusBar, maintenanceWarningMessage, KeyMaintenanceWarningMessage);
 						}
 					}
 				}
