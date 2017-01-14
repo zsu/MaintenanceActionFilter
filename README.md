@@ -2,6 +2,10 @@
 
 MaintenanceActionFilter is a asp.net MVC/Web Api action filter library for maintenance message handling.
 
+#Nuget
+```xml
+Install-Package MaintenanceActionFilter
+```
 #Getting started with MaintenanceActionFilter 
 
   * Reference MaintenanceActionFilter.dll and SessionMessage.dll (https://github.com/zsu/SessionMessage)
@@ -9,10 +13,10 @@ MaintenanceActionFilter is a asp.net MVC/Web Api action filter library for maint
 ```xml
   * StartTimeUtc: UTC time to start maintenance; Set to default datetime value will disable maintenance detection.
   * EndTimeUtc: UTC time to end maintenance.
-  * WarningLeadTime: Time in seconds before the start time to display the maintenance warning message. Set to 0 to disable warning message.
-  * MaintenanceWarningMessage: Warning message to display.
-  * GetMaintenanceUrl: Maintenance page url.
-  * CanByPass: Return true to bypass maintenance detection in certain circumstance.
+  * WarningLeadTime: Time in seconds before the start time to display the maintenance warning message. Set to 0 to disable warning message.
+  * MaintenanceWarningMessage: Warning message to display.
+  * GetMaintenanceUrl: Maintenance page url.
+  * CanByPass: Return true to bypass maintenance detection in certain circumstance.
 ```
   * Register it in filterconfig.cs:
 ```js
