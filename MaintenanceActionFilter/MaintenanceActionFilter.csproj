@@ -36,7 +36,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="SessionMessage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SessionMessage.1.1.0\lib\net45\SessionMessage.dll</HintPath>
+      <HintPath>..\packages\SessionMessage.1.2.0\lib\net45\SessionMessage.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -81,6 +81,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\fail.gif" />
+    <Content Include="Content\Images\info.gif" />
+    <Content Include="Content\Images\ok.gif" />
+    <Content Include="Content\Images\warn.gif" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -122,13 +126,19 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\toastr.less" />
+    <None Include="Content\toastr.scss" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-1.12.4.min.map" />
   </ItemGroup>
