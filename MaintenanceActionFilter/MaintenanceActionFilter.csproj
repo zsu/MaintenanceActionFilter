@@ -39,8 +39,12 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SessionMessage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SessionMessage.1.4.0\lib\net45\SessionMessage.dll</HintPath>
+    <Reference Include="SessionMessages.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SessionMessages.Core.1.0.0\lib\net45\SessionMessages.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SessionMessages.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SessionMessages.Mvc.1.1.0\lib\net45\SessionMessages.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
