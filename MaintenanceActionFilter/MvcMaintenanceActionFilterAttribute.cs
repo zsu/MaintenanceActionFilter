@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MaintenanceActionFilter
@@ -11,6 +12,7 @@ namespace MaintenanceActionFilter
 	public class MvcMaintenanceActionFilterAttribute : ActionFilterAttribute
 	{
 		private const string KeyMaintenanceWarningMessage = "maintenance.warningmessage";
+        private const string KeyMaintenanceWarningCookie = "maintenancewarning";
 		private IMaintenanceSettingProvider _settingProvider;
 		public bool Disabled { get; set; }
 		public MvcMaintenanceActionFilterAttribute()
@@ -41,11 +43,18 @@ namespace MaintenanceActionFilter
 				}
 				else if (startTime != default(DateTime) && startTime > DateTime.UtcNow && warningLead > 0)
 				{
-					var difference = (startTime - DateTime.UtcNow);
-					if (difference.TotalSeconds < warningLead)
-					{
-						SessionMessageManager.SetMessage(MessageType.Warning, MessageBehaviors.StatusBar, maintenanceWarningMessage, KeyMaintenanceWarningMessage);
-					}
+                    if (filterContext.HttpContext.Request.Cookies[KeyMaintenanceWarningCookie]==null || filterContext.HttpContext.Request.Cookies[KeyMaintenanceWarningCookie].Value !="1")
+                    {
+                        var difference = (startTime - DateTime.UtcNow);
+                        if (difference.TotalSeconds < warningLead)
+                        {
+                            SessionMessageManager.SetMessage(MessageType.Warning, MessageBehaviors.Modal, maintenanceWarningMessage, KeyMaintenanceWarningMessage);
+                            HttpCookie cookie = new HttpCookie(KeyMaintenanceWarningCookie);
+                            cookie.Value = "1";
+                            cookie.HttpOnly = true;
+                            filterContext.HttpContext.Response.Cookies.Add(cookie);
+                        }
+                    }
 				}
 			}
 			base.OnActionExecuting(filterContext);

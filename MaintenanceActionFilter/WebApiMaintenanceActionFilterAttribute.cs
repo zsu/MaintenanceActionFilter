@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -14,7 +15,8 @@ namespace MaintenanceActionFilter
 	public class WebApiMaintenanceActionFilterAttribute : ActionFilterAttribute
 	{
 		private const string KeyMaintenanceWarningMessage = "maintenance.warningmessage";
-		private IMaintenanceSettingProvider _settingProvider;
+        private const string KeyMaintenanceWarningCookie = "maintenancewarning";
+        private IMaintenanceSettingProvider _settingProvider;
 		public bool Disabled { get; set; }
 		public WebApiMaintenanceActionFilterAttribute(IMaintenanceSettingProvider settingProvider)
 		{
@@ -51,12 +53,19 @@ namespace MaintenanceActionFilter
 					}
 					if (startTime != default(DateTime) && startTime > DateTime.UtcNow && warningLead > 0)
 					{
-						var difference = (startTime - DateTime.UtcNow);
-						if (difference.TotalSeconds < warningLead)
-						{
-							SessionMessageManager.SetMessage(MessageType.Warning, MessageBehaviors.StatusBar, maintenanceWarningMessage, KeyMaintenanceWarningMessage);
-						}
-					}
+                        CookieHeaderValue cookie = filterContext.Request.Headers.GetCookies(KeyMaintenanceWarningCookie).FirstOrDefault();
+                        if (cookie == null || cookie[KeyMaintenanceWarningCookie].Value!="1")
+                        {
+                            var difference = (startTime - DateTime.UtcNow);
+                            if (difference.TotalSeconds < warningLead)
+                            {
+                                SessionMessageManager.SetMessage(MessageType.Warning, MessageBehaviors.Modal, maintenanceWarningMessage, KeyMaintenanceWarningMessage);
+                                CookieHeaderValue newCookie = new CookieHeaderValue(KeyMaintenanceWarningCookie,"1");
+                                newCookie.HttpOnly = true;
+                                filterContext.Response.Headers.AddCookies(new CookieHeaderValue[] { newCookie });
+                            }
+                        }
+                    }
 				}
 				base.OnActionExecuting(filterContext);
 			}
