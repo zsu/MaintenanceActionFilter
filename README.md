@@ -1,6 +1,6 @@
 # What is MaintenanceActionFilter
 
-MaintenanceActionFilter is a asp.net MVC/Web Api action filter library for maintenance message handling.
+MaintenanceActionFilter is an asp.net MVC/Web Api action filter library for maintenance message handling.
 
 # Nuget
 ```xml
