@@ -1,3 +1,6 @@
+[![NuGet](https://img.shields.io/nuget/v/MaintenanceActionFilter.svg)](https://www.nuget.org/packages/MaintenanceActionFilter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 # What is MaintenanceActionFilter
 
 MaintenanceActionFilter is an asp.net MVC/Web Api action filter library for maintenance message handling.
